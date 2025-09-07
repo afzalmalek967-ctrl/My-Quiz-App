@@ -1,0 +1,27 @@
+﻿@model List<Result>
+<h1>Student Quiz Results</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Date Completed</th>
+            <th>Total Questions</th>
+            <th>Attempted</th>
+            <th>Correct</th>
+            <th>Wrong</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <td>@result.StudentName</td>
+                <td>@result.DateCompleted.ToString("g")</td>
+                <td>@result.TotalQuestions</td>
+                <td>@result.AttemptedQuestions</td>
+                <td>@result.Score</td>
+                <td>@result.WrongAnswers</td>
+            </tr>
+        }
+    </tbody>
+</table>

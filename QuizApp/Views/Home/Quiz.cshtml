@@ -1,0 +1,29 @@
+﻿@model List<Question>
+@{
+    ViewData["Title"] = "Quiz";
+}
+
+<h1>Quiz</h1>
+<form asp-action="SubmitQuiz" method="post">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        var question = Model[i];
+        <div>
+            <h4>@((i + 1).ToString()). @question.QuestionText</h4>
+            <input type="hidden" name="answers[@i].QuestionId" value="@question.Id" />
+            <div>
+                <input type="radio" name="answers[@i].SelectedOption" value="@question.OptionA" /> @question.OptionA
+            </div>
+            <div>
+                <input type="radio" name="answers[@i].SelectedOption" value="@question.OptionB" /> @question.OptionB
+            </div>
+            <div>
+                <input type="radio" name="answers[@i].SelectedOption" value="@question.OptionC" /> @question.OptionC
+            </div>
+            <div>
+                <input type="radio" name="answers[@i].SelectedOption" value="@question.OptionD" /> @question.OptionD
+            </div>
+        </div>
+    }
+    <button type="submit" class="btn btn-primary mt-4">Submit Quiz</button>
+</form>

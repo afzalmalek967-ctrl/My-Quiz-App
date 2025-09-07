@@ -1,0 +1,42 @@
+﻿@model QuizApp.Models.Result
+
+@{
+    ViewData["Title"] = "Your Quiz Results";
+}
+
+<div class="container mt-5">
+    <div class="card p-4 shadow-sm">
+        <h2 class="text-center mb-4">Quiz Results</h2>
+        <div class="row text-center">
+            <div class="col-md-6 mb-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h4 class="card-title">Correct Answers</h4>
+                        <p class="card-text h1">@Model.Score</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                        <h4 class="card-title">Wrong Answers</h4>
+                        <p class="card-text h1">@Model.WrongAnswers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <h4 class="card-title">Total Questions</h4>
+                        <p class="card-text h1">@Model.TotalQuestions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <p class="text-center">Thank you for taking the quiz!</p>
+        <div class="text-center mt-3">
+            <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Go to Home</a>
+        </div>
+    </div>
+</div>

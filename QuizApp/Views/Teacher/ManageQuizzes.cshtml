@@ -1,0 +1,26 @@
+﻿@model List<Question>
+<h1>Manage Quizzes</h1>
+<a asp-action="AddQuestion" class="btn btn-success">Add New Question</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>Correct Answer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var question in Model)
+        {
+            <tr>
+                <td>@question.QuestionText</td>
+                <td>@question.CorrectAnswer</td>
+                <td>
+                    <form asp-action="DeleteQuestion" asp-route-id="@question.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
